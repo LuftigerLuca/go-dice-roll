@@ -23,6 +23,19 @@ func getRoll(c *gin.Context) {
 		return
 	}
 
+	if sides <= 0 {
+		c.JSON(400, gin.H{"message": "Sides must not be zero or lower"})
+		return
+	}
+
 	result := rand.Intn(sides) + 1
-	c.IndentedJSON(200, gin.H{"result": result})
+	average := float64(1+sides) / 2
+	probability := 1 / float64(sides)
+
+	c.IndentedJSON(200, gin.H{
+		"result":      result,
+		"sides":       sides,
+		"average":     average,
+		"probability": probability,
+	})
 }
