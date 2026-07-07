@@ -29,7 +29,7 @@ curl "localhost:8080/roll?sides=6"
     "result": 4,
     "sides": 6,
     "average": 3.5,
-    "probability": 0.16666666666666666
+    "probability": 0.17
 }
 ```
 

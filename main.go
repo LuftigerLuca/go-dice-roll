@@ -1,6 +1,7 @@
 package main
 
 import (
+	"math"
 	"math/rand"
 	"strconv"
 
@@ -30,7 +31,7 @@ func getRoll(c *gin.Context) {
 
 	result := rand.Intn(sides) + 1
 	average := float64(1+sides) / 2
-	probability := 1 / float64(sides)
+	probability := math.Round((1.0/float64(sides))*100) / 100
 
 	c.IndentedJSON(200, gin.H{
 		"result":      result,
