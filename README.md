@@ -26,9 +26,19 @@ curl "localhost:8080/roll?sides=6"
 
 ```json
 {
-    "result": 4
+    "result": 4,
+    "sides": 6,
+    "average": 3.5,
+    "probability": 0.16666666666666666
 }
 ```
+
+**Error responses:**
+
+| Query | Status | Message |
+|---|---|---|
+| `sides` is missing or not a number | `400` | `"Sides must be a number!"` |
+| `sides` is zero or negative | `400` | `"Sides must not be zero or lower"` |
 
 ## Build
 
