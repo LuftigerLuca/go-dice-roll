@@ -25,7 +25,7 @@ func getRoll(c *gin.Context) {
 	}
 
 	if sides <= 0 {
-		c.JSON(400, gin.H{"message": "Sides must not be zero or lower"})
+		c.JSON(400, gin.H{"message": "Sides must not be zero or lower!"})
 		return
 	}
 
