@@ -1,6 +1,9 @@
 # dice-roller
 
-Simple dice rolling HTTP API built with Go and Gin.
+[![Go Version](https://img.shields.io/github/go-mod/go-version/LuftigerLuca/go-dice-roll)](https://github.com/LuftigerLuca/go-dice-roll)
+[![Repo Size](https://img.shields.io/github/repo-size/LuftigerLuca/go-dice-roll)](https://github.com/LuftigerLuca/go-dice-roll)
+
+Simple dice rolling HTTP API built with Go.
 
 ## Usage
 
@@ -12,14 +15,14 @@ Server starts on `localhost:8080`.
 
 ### Endpoint
 
-**`GET /roll?sides=<number>`**
+**`GET /roll/{sides}`**
 
 Roll a die with the given number of sides.
 
 **Example:**
 
 ```bash
-curl "localhost:8080/roll?sides=6"
+curl "localhost:8080/roll/6"
 ```
 
 **Response:**
@@ -35,10 +38,10 @@ curl "localhost:8080/roll?sides=6"
 
 **Error responses:**
 
-| Query | Status | Message |
+| Condition | Status | Message |
 |---|---|---|
-| `sides` is missing or not a number | `400` | `"Sides must be a number!"` |
-| `sides` is zero or negative | `400` | `"Sides must not be zero or lower"` |
+| `sides` is not a number | `400` | `"strconv.Atoi error message"` |
+| `sides` is zero or negative | `400` | `"sides must be a number!"` |
 
 ## Build
 
