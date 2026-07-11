@@ -80,9 +80,9 @@ func middleware(next http.Handler) http.Handler {
 			}
 		}()
 
-		s := time.Now()
+		start := time.Now()
 		next.ServeHTTP(w, r)
-		d := time.Since(s)
-		slog.Info(r.Method, "path", r.URL, "duration", d)
+		difference := time.Since(start)
+		slog.Info(r.Method, "path", r.URL, "duration", difference)
 	})
 }
